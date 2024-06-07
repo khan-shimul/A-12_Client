@@ -3,13 +3,15 @@
 import google from '../assets/google 1.png'
 import loginImg from '../assets/authentication2.png'
 import Swal from 'sweetalert2';
-import useAxiosPublic from '../Components/useAxiosPublic';
+
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthPorvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useAxiosPublic from '../Components/useAxiosPublic';
 
 const Login = () => {
     const{login,googleLogin}=useContext(AuthContext)
+    const axiosPublic=useAxiosPublic()
     const location = useLocation();
     const navigate =useNavigate()
 
@@ -43,10 +45,11 @@ const Login = () => {
         email:result.user?.email,
         name:result.user?.name
       }
-      useAxiosPublic.post('/users',userInfo)
+      axiosPublic.post('/users',userInfo)
       .then(res=>{
-        Swal.fire("User created Successful!");
-        navigate('/')
+        console.log(res.data)
+        Swal.fire("User Login Successfully!");
+        navigate(location?.state ? location.state :'/')
       })
       
     })

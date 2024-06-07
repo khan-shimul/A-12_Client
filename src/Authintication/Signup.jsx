@@ -34,6 +34,7 @@ const Signup = () => {
           }
    axiosPublic.post('/users',userInfo)
    .then(res=>{
+    
     if(res.data.insertedId){
       // console.log('database e gesega')
       Swal.fire("User created Successful!");
@@ -60,6 +61,7 @@ const Signup = () => {
       }
       axiosPublic.post('/users',userInfo)
       .then(res=>{
+        
         Swal.fire("User created Successful!");
         navigate('/')
       })
