@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import app from "../Components/Authentication/Firebase/Firebase.config";
-import useAxiosPublic from "../hooks/useAxiosPublic";
+import app from "../Authintication/Firebase/Firebase.config";
+import useAxiosPublic from "../Components/useAxiosPublic";
 
 
-export const AuthContext =createContext(null)
+export const AuthContext =createContext({})
 const auth = getAuth(app);
 const googleProvider=new GoogleAuthProvider()
 const axiosPublic=useAxiosPublic()
@@ -35,7 +35,7 @@ useEffect(()=>{
   setLoading(false)
       })
       return ()=>{
-          unSubscribe()
+        return  unSubscribe()
       }
   },[])
 

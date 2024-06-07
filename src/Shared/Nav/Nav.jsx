@@ -1,12 +1,27 @@
+
 import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from 'react-router-dom';
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import logo from '../../assets/download-C1bLvnDk.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthPorvider";
+import Swal from "sweetalert2";
+
+
 
 const Nav = () => {
 
+  const { logOut, user } = useContext(AuthContext);
 
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire("Log Out Successful!");
+      })
+      .catch((error) => console.log(error));
+  };
 
     const navLinks = (
         <>
@@ -52,29 +67,7 @@ const Nav = () => {
             
             
     
-            {/* {user ? (
-              <>
-                <button className="btn btn-ghost text-xl" >
-                    onClick={handleLogout}
-                  Log Out
-                </button>
-              </>
-            ) : (
-              <>
-                <li>
-                  <NavLink
-                    to="/login"
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-yellow-400 border p-2 rounded-md border-yellow-400 font-mono"
-                        : "text-xl"
-                    }
-                  >
-                    LOGIN
-                  </NavLink>
-                </li>
-              </>
-            )} */}
+          
           </div>
         </>
       );
@@ -117,23 +110,23 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="">
-        {/* <div
+        <div
           data-tooltip-id="my-tooltip"
           data-tooltip-content={user?.displayName || "No User"}
           className="w-10 mr-2 rounded-full"
         >
           <img className="rounded-2xl" alt="" src={user?.photoURL} />
-        </div> */}
-        {/* {
+        </div>
+        {
       user?<>
       
-<Link> <button className="btn border-green-600 text-green-500">Sign Out</button></Link>
+<Link> <button onClick={handleLogout} className="btn border-green-600 text-green-500">Sign Out</button></Link>
 </> :
 <div className="flex gap-3">
-<Link to='/login'> <button className="btn  border-green-600 text-green-500">Login</button></Link>
-<Link to='/register'> <button className="btn border-green-600 text-green-500">Register</button></Link>
+<Link to='/login'> <button className="btn  bg-gray-500 border-green-600 text-white">Login</button></Link>
+<Link to='/signup'> <button className="btn bg-gray-500 border-green-600 text-white">Register</button></Link>
 </div>
-    } */}
+    }
       </div>
       <div className="ml-4">
         <label className="cursor-pointer grid place-items-center">
