@@ -21,6 +21,7 @@ import AddProperty from "./Components/AgentThing/AddProperty";
 import AgentAddedProperty from "./Components/AgentThing/AgentAddedProperty";
 import AgentSoldProperty from "./Components/AgentThing/AgentSoldProperty";
 import RequestedProperty from "./Components/AgentThing/RequestedProperty";
+import PrivateRoute from "./Components/private,admin,route/PrivateRoute";
 
 
  export const router = createBrowserRouter([
@@ -42,14 +43,14 @@ import RequestedProperty from "./Components/AgentThing/RequestedProperty";
         },
         {
             path:'/allproperty',
-            element:<AllProperty></AllProperty>,
+            element:<PrivateRoute><AllProperty></AllProperty></PrivateRoute>,
         },
       ]
     },
 
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard> ,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
       children:[
         {
          path:'/dashboard/adminprofile',

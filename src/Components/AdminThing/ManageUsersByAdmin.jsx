@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { FaUsersBetweenLines } from 'react-icons/fa6';
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from 'sweetalert2';
+import { MdSupportAgent } from "react-icons/md";
 
 const ManageUsersByAdmin = () => {
 
@@ -38,6 +39,34 @@ const handleMakeAdmin =user=>{
                   Swal.fire({
                       title: "Great!",
                       text: `${user?.name || user?.email} is now Admin. `,
+                      icon: "success"
+                    });
+              }
+          })
+      
+      }
+    });
+}
+// make agent
+const handleMakeAgent =user=>{
+  console.log(user)
+  Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Make Agent!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+          axiosSecure.patch(`/users/agent/${user._id}`)
+          .then(res=>{
+              if(res.data.modifiedCount>0){
+                  refetch()
+                  Swal.fire({
+                      title: "Great!",
+                      text: `${user?.name || user?.email} is now Agent. `,
                       icon: "success"
                     });
               }
@@ -95,6 +124,7 @@ const handleMakeAdmin =user=>{
         <th>NAME</th>
         <th>EMAIL</th>
         <th>ROLE</th>
+        <th>ROLE</th>
         <th>ACTION</th>
         
       </tr>
@@ -115,6 +145,10 @@ const handleMakeAdmin =user=>{
         </td>
         <td>
         {item.role ==='admin'?'Admin':<button onClick={()=>handleMakeAdmin(item)} className="btn text-2xl text-white bg-[#D1A054]  "> <FaUsersBetweenLines /></button>}
+        
+        </td>
+        <td>
+        {item.role ==='admin'?' ': item.role ==='agent'? 'Agent': <button onClick={()=>handleMakeAgent(item)} className="btn text-2xl text-white bg-[#D1A054]  "> <MdSupportAgent /></button>}
         
         </td>
         <td>

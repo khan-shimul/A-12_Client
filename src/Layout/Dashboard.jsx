@@ -7,10 +7,15 @@ import { FaBookMedical } from "react-icons/fa6";
 import { IoMenu } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../Components/useAdmin";
+import useAgent from "../Components/useAgent";
 
 const Dashboard = () => {
-    const isAdmin =true
-    const isAgent = true
+    const [isAdmin]=useAdmin()
+    const[isAgent]=useAgent()
+    // console.log(isAdmin)
+    // const isAgent = false
+    // const isAdmin = true
     return (
         <div className="flex   h-[100vh] ">
         <div className="w-64 min-h-screen bg-[#8ba80941] pt-20">
@@ -71,7 +76,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="text-lg" to="/dashboard/">
+                  <NavLink className="text-lg" to="/dashboard/wishlist">
                     <FaBookMedical /> WishList
                   </NavLink>
                 </li>
