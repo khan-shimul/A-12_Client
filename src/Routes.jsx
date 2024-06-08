@@ -6,6 +6,7 @@ import Main from "./Layout/Main";
 import Home from "./Pages/Home/Home/Home";
 import Signup from "./Authintication/Signup";
 import Login from "./Authintication/Login";
+import AllProperty from "./Components/AllProperty/AllProperty";
 
 
  export const router = createBrowserRouter([
@@ -24,6 +25,10 @@ import Login from "./Authintication/Login";
         {
             path:'/signup',
             element:<Signup></Signup>,
+        },
+        {
+            path:'/allproperty',
+            element:<AllProperty></AllProperty>,
         },
       ]
     },
