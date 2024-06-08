@@ -9,10 +9,10 @@ import { IoMdHome } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-    const isAdmin =false
+    const isAdmin =true
     const isAgent = true
     return (
-        <div className="flex h-[100vh] ">
+        <div className="flex   h-[100vh] ">
         <div className="w-64 min-h-screen bg-[#8ba80941] pt-20">
           <ul className="menu space-y-2 mx-5">
             {isAdmin ? 
@@ -42,13 +42,13 @@ const Dashboard = () => {
       <NavLink className='text-lg' to='/dashboard/addproperty'><HiOutlineHomeModern /> Add Property</NavLink>
       </li>
       <li>
-      <NavLink className='text-lg' to='/dashboard/myaddedproperty'><FaUsers /> My added properties</NavLink>
+      <NavLink className='text-lg' to='/dashboard/myaddedproperty'><HiOutlineHomeModern /> My added properties</NavLink>
       </li>
       <li>
-      <NavLink className='text-lg' to='/dashboard/soldproperty'><GoCodeReview /> My sold properties</NavLink>
+      <NavLink className='text-lg' to='/dashboard/soldproperty'><HiOutlineHomeModern /> My sold properties</NavLink>
       </li>
       <li>
-      <NavLink className='text-lg' to='/dashboard/requestedproperty'><GoCodeReview /> Requested properties</NavLink>
+      <NavLink className='text-lg' to='/dashboard/requestedproperty'><HiOutlineHomeModern /> Requested properties</NavLink>
       </li>
              </> 
              :
@@ -95,7 +95,7 @@ const Dashboard = () => {
           </ul>
         </div>
   
-        <div className="flex-1 pt-20">
+        <div className="flex-1 ">
           <Outlet></Outlet>
         </div>
       </div>
