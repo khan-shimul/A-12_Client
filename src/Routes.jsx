@@ -22,12 +22,14 @@ import AgentAddedProperty from "./Components/AgentThing/AgentAddedProperty";
 import AgentSoldProperty from "./Components/AgentThing/AgentSoldProperty";
 import RequestedProperty from "./Components/AgentThing/RequestedProperty";
 import PrivateRoute from "./Components/private,admin,route/PrivateRoute";
+import Error from "./Components/Error/Error";
 
 
  export const router = createBrowserRouter([
     {
       path: "/",
       element:<Main></Main>,
+      errorElement:<Error></Error>,
       children:[
         {
             path:'/',
