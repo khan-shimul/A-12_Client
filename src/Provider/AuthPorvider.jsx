@@ -42,6 +42,7 @@ const googleLogin=()=>{
 
 useEffect(()=>{
 const unsubscribe= onAuthStateChanged(auth,(currentUser)=>{
+    console.log('inside',currentUser)
     setUser(currentUser)
     if(currentUser){
         const userInfo={email: currentUser.email}
