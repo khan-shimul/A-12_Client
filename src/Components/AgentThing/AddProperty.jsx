@@ -1,21 +1,55 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthPorvider';
+import useAxiosPublic from '../useAxiosPublic';
+import useaxiousSecure from '../useaxiousSecure';
+import Swal from 'sweetalert2';
+
+const img_hosting=import.meta.env.VITE_IMAGE_HOSTING_KEY
+const img_hosting_api=`https://api.imgbb.com/1/upload?key=${img_hosting}`
+
 
 const AddProperty = () => {
     const{user}=useContext(AuthContext)
+    const axiosPublic=useAxiosPublic()
+    const axiosSecure=useaxiousSecure()
 
-
-const handleSubmit=e=>{
+const handleSubmit=async e=>{
     e.preventDefault();
-    const propertyName = e.target.propertyname.value;
-    const isVerified=false
-    const location = e.target.location.value;
-    const agentName = e.target.agentname.value;
-    const agentEmail = e.target.agentemail.value;
-    const photo = e.target.photo.value;
-    const price = e.target.price.value;
-    const property={propertyName,location,agentName,agentEmail,photo,price,isVerified}
-    console.log(property)
+
+    const photoFile = new FormData();
+    const file = e.target.img.files[0];
+    photoFile.append("image", file);
+const res =await axiosPublic.post(img_hosting_api,photoFile,{
+  headers:{
+    'Content-Type':'multipart/form-data'
+  }
+  
+})
+if(res.data.success){
+  const propertyItem={
+    
+
+    propertyName : e.target.propertyname.value,
+    isVerified:false,
+    location : e.target.location.value,
+    agentName : e.target.agentname.value,
+    agentEmail : e.target.agentemail.value,
+  photo:res.data.data.display_url,
+    price : e.target.price.value
+    
+  }
+  console.log(propertyItem)
+  const propertyRes= await axiosSecure.post('/property',propertyItem)
+  console.log(propertyRes.data)
+  if(propertyRes.data.insertedId){
+    Swal.fire("Property Added Successfully!");
+  }
+}
+
+
+// console.log('with img',res.data)
+
+    
 }
 
     return (
@@ -66,7 +100,7 @@ const handleSubmit=e=>{
 
                 <div className="form-control w-full">
                     <label className="label">
-                        <span className="label-text">Agent          Email</span>
+                        <span className="label-text">Agent Email</span>
                     </label>
                     <input 
                         name="agentemail"
@@ -82,18 +116,7 @@ const handleSubmit=e=>{
 
              
 
-                <div className="col-span-2 form-control w-full">
-                    <label className="label">
-                        <span className="label-text">Property Photo</span>
-                    </label>
-                    <input 
-                        name="photo" 
-                        type="text" 
-                        placeholder="Enter Photo URL" 
-                        className="input input-bordered w-full" 
-                        required 
-                    />
-                </div>
+               
 
                 <div className="col-span-2 w-full">
                     <label className="label">
@@ -106,11 +129,11 @@ const handleSubmit=e=>{
                         rows="10"
                     />
                 </div>
-
+                <input type="file" name="img" className=" mt-5 file-input w-full max-w-xs" />
                 <input 
                     type="submit" 
                     className="col-span-2 my-5 min-w-full btn btn-outline border-orange-800 hover:border-orange-600 text-white bg-orange-600 hover:bg-orange-400 border-4" 
-                    value="Add Craft" 
+                    value="Add Property" 
                 />
             </form>
         </div>
