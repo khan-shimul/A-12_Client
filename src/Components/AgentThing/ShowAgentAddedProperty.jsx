@@ -11,10 +11,13 @@ const{propertyName,
     isVerified,
     location,
     photo,
+	agentName,
     minPrice,
     maxPrice}=property
     return (
         <div>
+			
+			<div className='bg-gradient-to-bl from-orange-100 via-yellow-100 to-yellow-400 backdrop-blur'>
             
             <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
 	<div className="flex space-x-4">
@@ -25,12 +28,13 @@ const{propertyName,
 			<span className="text-base text-blue-600 dark:text-gray-600">-Agent-</span>
 		</div>
 	</div>
-	<div>
-		<img  src={photo} alt="" className="object-cover w-full hover:overflow-visible  h-60 sm:h-96 dark:bg-gray-500" />
+	<div >
+		<img  src={photo} alt="" className="object-cover w-full   h-60 sm:h-96 dark:bg-gray-500" />
 		
         
 	</div>
-    <div className='flex justify-between px-9'>
+	
+	<div className='flex justify-between px-9'>
         <h1 className='text-xl  font-semibold'> <span className='text-green-600 text-base mr-1'>Title:</span>  {propertyName}</h1>
         <h1 className='flex items-center justify-center gap-1 text-xl font-semibold' ><IoLocationSharp />{location}</h1>
     </div>
@@ -53,8 +57,11 @@ const{propertyName,
 			
 		</div>
 	</div>
+	
+    
 </div>
         </div>
+		</div>
     );
 };
 
