@@ -3,6 +3,7 @@ import useaxiousSecure from '../useaxiousSecure';
 import { useQuery } from '@tanstack/react-query';
 import { RxLapTimer } from 'react-icons/rx';
 import { TiDeleteOutline } from "react-icons/ti";
+import Swal from 'sweetalert2';
 
 const ManagePropertyByAdmin = () => {
     const axiosSecure =useaxiousSecure()
@@ -16,7 +17,69 @@ const ManagePropertyByAdmin = () => {
         }
         
     })
-    console.log(property)
+
+
+    const handleVerify =property=>{
+        console.log(property)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Verify it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/property/verify/${property._id}`)
+                .then(res=>{
+                    if(res.data.modifiedCount>0){
+                        refetch()
+                        Swal.fire({
+                            title: "Great!",
+                            text:`${property.
+                                propertyName} is Verified Now!!`,
+                            icon: "success"
+                          });
+                    }
+                })
+            
+            }
+          });
+    }
+    const handleReject =property=>{
+        console.log(property)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Reject it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/property/reject/${property._id}`)
+                .then(res=>{
+                    if(res.data.modifiedCount>0){
+                        refetch()
+                        Swal.fire({
+                            title: "Great!",
+                            text:`${property.
+                                propertyName} is Rejected!`,
+                            icon: "success"
+                          });
+                    }
+                })
+            
+            }
+          });
+    }
+
+
+
+
+    // console.log(property)
 
     return (
         <div>
@@ -64,11 +127,18 @@ const ManagePropertyByAdmin = () => {
         
         </td>
         <td>
-          <button   className="btn text-2xl text-white bg-[#D1A054]"><RxLapTimer /></button>
+
+            {
+                item?.isVerified===true?'Verified':item?.isVerified==='reject'?'Rejected': <button  onClick={()=>handleVerify(item)}  className="btn text-2xl text-white bg-[#D1A054]"><RxLapTimer /></button>
+            }
+          
          
         </td>
         <td>
-          <button   className="btn text-2xl text-white bg-red-600 "><TiDeleteOutline /></button>
+            {
+                item?.isVerified===true?'Verified':item?.isVerified==='reject'?'Rejected':<button onClick={()=>handleReject(item)}  className="btn text-2xl text-white bg-red-600 "><TiDeleteOutline /></button>
+            }
+          
          
         </td>
       </tr>)

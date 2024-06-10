@@ -51,11 +51,11 @@ import Error from "./Components/Error/Error";
     },
 
     {
-      path:'dashboard',
+      path:'/dashboard',
       element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
       children:[
         {
-         path:'/dashboard/adminprofile',
+         path:'/dashboard',
          element:<AdminProfile></AdminProfile>
         },
         {
@@ -74,7 +74,7 @@ import Error from "./Components/Error/Error";
         //  user
 
         {
-         path:'/dashboard/userprofile',
+         path:'/dashboard',
          element:<UserProfile></UserProfile>
         },
         {
@@ -93,7 +93,7 @@ import Error from "./Components/Error/Error";
         // agent
 
         {
-          path:'/dashboard/agentprofile',
+          path:'/dashboard',
           element:<AgentProfile></AgentProfile>
          },
          {
