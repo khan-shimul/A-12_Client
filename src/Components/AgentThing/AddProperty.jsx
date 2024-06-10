@@ -34,6 +34,8 @@ const AddProperty = () => {
         photo: res.data.data.display_url,
         minPrice: e.target.minprice.value,
         maxPrice: e.target.maxprice.value,
+        des: e.target.des.value,
+        agentImg: user?.photoURL,
       };
       console.log(propertyItem);
       const propertyRes = await axiosSecure.post("/property", propertyItem);
@@ -137,6 +139,22 @@ const AddProperty = () => {
             
           />
         </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Description</span>
+          </label>
+          <textarea
+
+            rows={3}
+            cols={30}
+            name="des"
+            type="number"
+            placeholder="Description"
+            className="input input-bordered w-full"
+            
+          />
+        </div>
+
 
         
         <input
