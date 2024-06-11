@@ -109,7 +109,7 @@ const AddProperty = () => {
             type="text"
             placeholder="Enter Craft Price"
             className="input input-bordered w-full"
-            required
+            readOnly
           />
         </div>
         <div className="form-control w-full">

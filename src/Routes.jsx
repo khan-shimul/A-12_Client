@@ -23,6 +23,7 @@ import AgentSoldProperty from "./Components/AgentThing/AgentSoldProperty";
 import RequestedProperty from "./Components/AgentThing/RequestedProperty";
 import PrivateRoute from "./Components/private,admin,route/PrivateRoute";
 import Error from "./Components/Error/Error";
+import Update from "./Components/AgentThing/Update";
 
 
  export const router = createBrowserRouter([
@@ -112,6 +113,12 @@ import Error from "./Components/Error/Error";
           path:'/dashboard/requestedproperty',
           element:<RequestedProperty></RequestedProperty>
          },
+         {
+          path:'/dashboard/update/:id',
+          element:<PrivateRoute><Update></Update></PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/property/${params.id}`)
+
+        },
       ]
       }
 

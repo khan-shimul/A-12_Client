@@ -5,6 +5,7 @@ import { IoLocationSharp } from 'react-icons/io5';
 import { RxLapTimer } from "react-icons/rx";
 import Swal from 'sweetalert2';
 import useaxiousSecure from '../useaxiousSecure';
+import { Link } from 'react-router-dom';
 
 const ShowAgentAddedProperty = ({property}) => {
     const {user}=useContext(AuthContext)
@@ -78,11 +79,11 @@ const{propertyName,
 	<div className="flex justify-between px-14 lg:px-24 items-center  ">
 		<div className="">
 			{
-				isVerified==='reject'?'':<button aria-label="" type="button" className="p-2 text-green-500 text-3xl text-center">
+				isVerified==='reject'?'':<Link to={`/dashboard/update/${_id}`}><button aria-label="" type="button" className="p-2 text-green-500 text-3xl text-center">
 				<MdSystemUpdateAlt />
-				</button>
+				</button></Link>
 			}
-			
+			{/*  */}
 			
 		</div>
 		<div className=" dark:text-gray-600">
