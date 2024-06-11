@@ -3,10 +3,12 @@ import { IoLocationSharp } from 'react-icons/io5';
 import { MdVerifiedUser } from 'react-icons/md';
 import { RxLapTimer } from 'react-icons/rx';
 import { TbListDetails } from "react-icons/tb";
+import { Link } from 'react-router-dom';
 
 const ShowAllProperty = ({property}) => {
     
     const{propertyName,
+        _id,
         isVerified,
         location,
         photo,
@@ -37,7 +39,7 @@ const ShowAllProperty = ({property}) => {
         <h1 className='text-xl  font-semibold'> <span className='text-violet-800 text-base mr-1'>Price:</span> ${minPrice}-{maxPrice} </h1>
         <h1 className='flex items-center justify-center gap-1 text-xl text-orange-500 font-semibold mb-4' > <MdVerifiedUser />{ isVerified===false?<><RxLapTimer /> Pending</> :isVerified=== true?'Verified':'Rejected'}</h1>
     </div>
-    <button className=' btn w-full btn-outline flex items-center bg-amber-400 gap-2'><TbListDetails /> Details</button>
+   <Link to={`/details/${_id}`}> <button className=' btn w-full btn-outline flex items-center bg-amber-400 gap-2'><TbListDetails /> Details</button></Link>
 </div> 
         </div>
     );

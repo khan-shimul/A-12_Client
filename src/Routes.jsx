@@ -24,6 +24,7 @@ import RequestedProperty from "./Components/AgentThing/RequestedProperty";
 import PrivateRoute from "./Components/private,admin,route/PrivateRoute";
 import Error from "./Components/Error/Error";
 import Update from "./Components/AgentThing/Update";
+import Details from "./Components/Details/Details";
 
 
  export const router = createBrowserRouter([
@@ -48,6 +49,11 @@ import Update from "./Components/AgentThing/Update";
             path:'/allproperty',
             element:<PrivateRoute><AllProperty></AllProperty></PrivateRoute>,
         },
+        {
+            path:'/details/:id',
+            element:<PrivateRoute><Details></Details></PrivateRoute>,
+            loader:({params})=>fetch(`http://localhost:5000/property/${params.id}`)
+        },
       ]
     },
 
@@ -56,7 +62,7 @@ import Update from "./Components/AgentThing/Update";
       element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
       children:[
         {
-         path:'/dashboard',
+         path:'/dashboard/adminprofile',
          element:<AdminProfile></AdminProfile>
         },
         {
@@ -75,7 +81,7 @@ import Update from "./Components/AgentThing/Update";
         //  user
 
         {
-         path:'/dashboard',
+         path:'/dashboard/userprofile',
          element:<UserProfile></UserProfile>
         },
         {
@@ -94,7 +100,7 @@ import Update from "./Components/AgentThing/Update";
         // agent
 
         {
-          path:'/dashboard',
+          path:'/dashboard/AgentProfile',
           element:<AgentProfile></AgentProfile>
          },
          {
@@ -119,6 +125,7 @@ import Update from "./Components/AgentThing/Update";
           loader:({params})=>fetch(`http://localhost:5000/property/${params.id}`)
 
         },
+        
       ]
       }
 

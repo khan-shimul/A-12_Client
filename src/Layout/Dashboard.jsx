@@ -23,7 +23,7 @@ const Dashboard = () => {
             {isAdmin ? 
               <>
               <li>
-      <NavLink className='text-lg' to='/dashboard'><IoMdHome /> Admin Profile</NavLink>
+      <NavLink className='text-lg' to='/dashboard/adminprofile'><IoMdHome /> Admin Profile</NavLink>
       </li>
       <li>
       <NavLink className='text-lg' to='/dashboard/managepropertybyadmin'><HiOutlineHomeModern /> Manage Properties</NavLink>
@@ -41,7 +41,7 @@ const Dashboard = () => {
              <>
 
 <li>
-      <NavLink className='text-lg' to='/dashboard'><IoMdHome /> Agent Profile</NavLink>
+      <NavLink className='text-lg' to='/dashboard/agentprofile'><IoMdHome /> Agent Profile</NavLink>
       </li>
       <li>
       <NavLink className='text-lg' to='/dashboard/addproperty'><HiOutlineHomeModern /> Add Property</NavLink>
@@ -59,7 +59,7 @@ const Dashboard = () => {
              :
              <>
                 <li>
-                  <NavLink className="text-lg" to="/dashboard">
+                  <NavLink className="text-lg" to="/dashboard/userprofile">
                     <IoMdHome /> My Profile
                   </NavLink>
                 </li>
