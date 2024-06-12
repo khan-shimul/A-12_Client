@@ -3,10 +3,12 @@ import { AuthContext } from '../../Provider/AuthPorvider';
 import useaxiousSecure from '../useaxiousSecure';
 import { useQuery } from '@tanstack/react-query';
 import ShowAgentAddedProperty from './ShowAgentAddedProperty';
+import useAxiosPublic from '../useAxiosPublic';
 
 const AgentAddedProperty = () => {
     const {user}=useContext(AuthContext)
     const axiosSecure=useaxiousSecure()
+    const axiosPublic=useAxiosPublic()
     const{refetch,data:properties=[]}=useQuery({
         queryKey:['property',user?.email],
         queryFn:async ()=>{

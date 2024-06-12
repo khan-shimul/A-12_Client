@@ -3,15 +3,17 @@ import useAxiosPublic from '../useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../Provider/AuthPorvider';
 import ShowWishlist from './ShowWishlist';
+import useaxiousSecure from '../useaxiousSecure';
 
 const Wishlist = () => {
     const{user}=useContext(AuthContext)
     const axiosPublic=useAxiosPublic()
+    const axiosSecure=useaxiousSecure()
 
     const{refetch,data:properties=[]}=useQuery({
         queryKey:['wishedProperty',user?.email],
         queryFn:async ()=>{
-            const res=await axiosPublic.get(`/wishlist/${user.email}`)
+            const res=await axiosSecure.get(`/wishlist/${user.email}`)
          return res.data
         }
         

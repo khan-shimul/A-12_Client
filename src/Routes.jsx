@@ -25,6 +25,7 @@ import PrivateRoute from "./Components/private,admin,route/PrivateRoute";
 import Error from "./Components/Error/Error";
 import Update from "./Components/AgentThing/Update";
 import Details from "./Components/Details/Details";
+import MakeOffer from "./Components/MakeOffer.jsx/MakeOffer";
 
 
  export const router = createBrowserRouter([
@@ -95,6 +96,12 @@ import Details from "./Components/Details/Details";
         {
          path:'/dashboard/wishlist',
          element:<Wishlist></Wishlist>
+        },
+        {
+          path:'/dashboard/offer/:id',
+          element:<PrivateRoute><MakeOffer></MakeOffer></PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/wishlists/${params.id}`)
+
         },
         
         // agent

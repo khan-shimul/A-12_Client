@@ -6,9 +6,10 @@ import { AuthContext } from '../../Provider/AuthPorvider';
 import Swal from 'sweetalert2';
 import useaxiousSecure from '../useaxiousSecure';
 import useAxiosPublic from '../useAxiosPublic';
+import { Link } from 'react-router-dom';
 
 const ShowWishlist = ({item}) => {
-    console.log(item)
+    // console.log(item)
     const{user}=useContext(AuthContext)
     const axiosPublic=useAxiosPublic()
     const{propertyName,
@@ -22,6 +23,7 @@ agentImg,
         maxPrice,
         _id
     }=item
+   
     const handleDelete=id=>{
         Swal.fire({
             title: "Are you sure?",
@@ -80,11 +82,11 @@ agentImg|| "https://source.unsplash.com/random/100x100/?5"
 	<div className="flex justify-between px-14 lg:px-24 items-center  ">
 		<div className="">
 			
-				<button aria-label="" type="button" className="p-2 text-green-500 text-3xl text-center">
+				<Link  to={`/dashboard/offer/${_id}`}><button aria-label="" type="button" className="p-2 text-green-500 text-3xl text-center">
 				<MdOutlineLocalOffer />
-				</button>
+				</button></Link>
 			
-		
+               
 			
 		</div>
 		<div className=" dark:text-gray-600">
