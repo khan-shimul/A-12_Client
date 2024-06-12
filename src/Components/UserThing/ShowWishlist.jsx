@@ -1,27 +1,28 @@
 import React, { useContext } from 'react';
-import { MdDelete, MdSystemUpdateAlt } from 'react-icons/md';
-import { AuthContext } from '../../Provider/AuthPorvider';
 import { IoLocationSharp } from 'react-icons/io5';
-import { RxLapTimer } from "react-icons/rx";
+import { MdDelete, MdOutlineLocalOffer, MdSystemUpdateAlt } from 'react-icons/md';
+import { RxLapTimer } from 'react-icons/rx';
+import { AuthContext } from '../../Provider/AuthPorvider';
 import Swal from 'sweetalert2';
 import useaxiousSecure from '../useaxiousSecure';
-import { Link } from 'react-router-dom';
+import useAxiosPublic from '../useAxiosPublic';
 
-const ShowAgentAddedProperty = ({property}) => {
-    const {user}=useContext(AuthContext)
-	const axiosSecure=useaxiousSecure()
-    
-const{propertyName,
-    isVerified,
-    location,
-    photo,
-	agentName,
-    minPrice,
-    maxPrice,
-	_id
-}=property
-
-	const handleDelete=id=>{
+const ShowWishlist = ({item}) => {
+    console.log(item)
+    const{user}=useContext(AuthContext)
+    const axiosPublic=useAxiosPublic()
+    const{propertyName,
+        isVerified,
+        location,
+        photo,
+        
+agentImg,
+        agentName,
+        minPrice,
+        maxPrice,
+        _id
+    }=item
+    const handleDelete=id=>{
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -29,15 +30,15 @@ const{propertyName,
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, Remove it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/property/${id}`)
+                axiosPublic.delete(`/wishlist/${id}`)
                 .then(res=>{
                     if(res.data.deletedCount>0){
                         
                         Swal.fire({
-                            title: "Deleted!",
+                            title: "Removed!",
                             text: "Your file has been deleted.",
                             icon: "success"
                           });
@@ -50,16 +51,15 @@ const{propertyName,
     }
     return (
         <div>
-			
-			<div className=' bg-gradient-to-bl from-orange-100 via-yellow-100 to-yellow-400 backdrop-blur'>
+            <div className=' bg-gradient-to-bl from-orange-100 via-yellow-100 to-yellow-400 backdrop-blur'>
             
             <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
 	<div className="flex space-x-4">
 		<img  alt="" src={
-agentImg || "https://source.unsplash.com/random/100x100/?5"
+agentImg|| "https://source.unsplash.com/random/100x100/?5"
 } className="object-cover w-16 h-16 rounded-full shadow dark:bg-gray-500" />
 		<div className="flex flex-col space-y-1">
-			<a rel="noopener noreferrer" href="#" className=" font-semibold text-orange-500 uppercase text-lg">{user?.displayName}</a>
+			<a rel="noopener noreferrer" href="#" className=" font-semibold text-orange-500 uppercase text-lg">{agentName}</a>
 			<span className="text-base text-blue-600 dark:text-gray-600">-Agent-</span>
 		</div>
 	</div>
@@ -79,12 +79,12 @@ agentImg || "https://source.unsplash.com/random/100x100/?5"
     </div>
 	<div className="flex justify-between px-14 lg:px-24 items-center  ">
 		<div className="">
-			{
-				isVerified==='reject'?'':<Link to={`/dashboard/update/${_id}`}><button aria-label="" type="button" className="p-2 text-green-500 text-3xl text-center">
-				<MdSystemUpdateAlt />
-				</button></Link>
-			}
-			{/*  */}
+			
+				<button aria-label="" type="button" className="p-2 text-green-500 text-3xl text-center">
+				<MdOutlineLocalOffer />
+				</button>
+			
+		
 			
 		</div>
 		<div className=" dark:text-gray-600">
@@ -99,8 +99,8 @@ agentImg || "https://source.unsplash.com/random/100x100/?5"
     
 </div>
         </div>
-		</div>
+        </div>
     );
 };
 
-export default ShowAgentAddedProperty;
+export default ShowWishlist;
