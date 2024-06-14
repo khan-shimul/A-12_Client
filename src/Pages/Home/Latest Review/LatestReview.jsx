@@ -15,7 +15,7 @@ const axiosPublic= useAxiosPublic();
         }
         
     })
-    console.log(reviews)
+    // console.log(reviews)
     return (
         <div className='mt-12 py-10 px-5 rounded-xl bg-gradient-to-tr from-lime-100 via-yellow-200 to-teal-400'>
             <h1 className='text-center mb-10 text-4xl font-bold text-orange-500'>Latest Reviews is here!</h1>

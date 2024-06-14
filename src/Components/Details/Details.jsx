@@ -66,7 +66,7 @@ console.log(reviews)
 
   return (
     <div className="bg-yellow-50 w-[95%] md:w-[85%] mx-auto px-1 md:px-10 py-4 rounded-xl">
-      <Link to="/">
+      <Link to="/allproperty">
         <div className="pt-16 mt-10 text-[#331a15]">
           <div className="flex justify-start items-center gap-2 bg-yellow-200 max-w-[9rem] hover:cursor-pointer text-orange-800 rounded p-2">
             <svg
@@ -88,7 +88,7 @@ console.log(reviews)
               ></path>
             </svg>
             <h2 className="font-exo pb-1 font-semibold text-xl inline">
-              Home
+             Back
             </h2>
           </div>
         </div>

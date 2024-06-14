@@ -3,6 +3,7 @@ import { HiOutlineHomeModern } from "react-icons/hi2";
 import { FaUsers } from "react-icons/fa";
 import { GoCodeReview } from "react-icons/go";
 import { FaBookMedical } from "react-icons/fa6";
+import { FcAdvertising } from "react-icons/fc";
 
 import { IoMenu } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
@@ -33,6 +34,9 @@ const Dashboard = () => {
       </li>
       <li>
       <NavLink className='text-lg' to='/dashboard/managereviewsbyadmin'><GoCodeReview /> Manage reviews</NavLink>
+      </li>
+      <li>
+      <NavLink className='text-lg' to='/dashboard/advertise'><FcAdvertising /> Advertise Property</NavLink>
       </li>
       
               </>

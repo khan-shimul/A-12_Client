@@ -21,7 +21,7 @@ const AgentAddedProperty = () => {
     return (
        <div>
          <div className='bg-[#8ba80941] text-orange-500 text-center text-3xl font-bold pt-8 pb-8'>
-        <h1>{properties?.agentName} Your Added Property</h1>
+        <h1> Your Added Property</h1>
     </div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mb-10'>
            

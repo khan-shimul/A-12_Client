@@ -15,6 +15,8 @@ const{propertyName,
     isVerified,
     location,
     photo,
+    
+agentImg,
 	agentName,
     minPrice,
     maxPrice,

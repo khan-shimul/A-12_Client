@@ -1,12 +1,11 @@
-import React from 'react';
-import { IoLocationSharp } from 'react-icons/io5';
-import { MdVerifiedUser } from 'react-icons/md';
-import { RxLapTimer } from 'react-icons/rx';
+import { IoLocationSharp } from "react-icons/io5";
+import { MdVerifiedUser } from "react-icons/md";
+import { RxLapTimer } from "react-icons/rx";
 import { TbListDetails } from "react-icons/tb";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const ShowAllProperty = ({property}) => {
-    
+
+const ShowUiAdvertisement = ({property}) => {
     const{propertyName,
         _id,
         isVerified,
@@ -45,4 +44,4 @@ const ShowAllProperty = ({property}) => {
     );
 };
 
-export default ShowAllProperty;
+export default ShowUiAdvertisement;

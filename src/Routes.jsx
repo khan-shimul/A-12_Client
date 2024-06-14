@@ -26,6 +26,7 @@ import Error from "./Components/Error/Error";
 import Update from "./Components/AgentThing/Update";
 import Details from "./Components/Details/Details";
 import MakeOffer from "./Components/MakeOffer.jsx/MakeOffer";
+import Advertise from "./Components/AdminThing/Advertise";
 
 
  export const router = createBrowserRouter([
@@ -77,6 +78,10 @@ import MakeOffer from "./Components/MakeOffer.jsx/MakeOffer";
         {
          path:'/dashboard/managereviewsbyadmin',
          element:<ManageReviewsByAdmin></ManageReviewsByAdmin>
+        },
+        {
+         path:'/dashboard/advertise',
+         element:<Advertise></Advertise>
         },
         
         //  user

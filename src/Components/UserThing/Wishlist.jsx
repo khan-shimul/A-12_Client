@@ -7,7 +7,7 @@ import useaxiousSecure from '../useaxiousSecure';
 
 const Wishlist = () => {
     const{user}=useContext(AuthContext)
-    const axiosPublic=useAxiosPublic()
+    
     const axiosSecure=useaxiousSecure()
 
     const{refetch,data:properties=[]}=useQuery({
@@ -18,7 +18,7 @@ const Wishlist = () => {
         }
         
     })
-    console.log(properties)
+    // console.log(properties)
     
 
     return (

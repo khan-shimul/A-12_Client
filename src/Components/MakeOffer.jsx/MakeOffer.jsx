@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData} from 'react-router-dom';
+import { useLoaderData, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthPorvider';
 import useAxiosPublic from '../useAxiosPublic';
 import Swal from 'sweetalert2';
@@ -8,7 +8,7 @@ import useaxiousSecure from '../useaxiousSecure';
 const MakeOffer = () => {
     const{user}=useContext(AuthContext)
     const offerProperty =useLoaderData()
-    const axiosPublic=useAxiosPublic()
+    const navigate=useNavigate()
     const axiosSecure=useaxiousSecure()
     console.log(offerProperty)
     const{propertyName,
@@ -18,6 +18,8 @@ const MakeOffer = () => {
         
 agentImg,
         agentName,
+        
+agentEmail,
         minPrice,
         maxPrice,
         _id
@@ -37,9 +39,9 @@ agentImg,
             buyername: e.target.buyername.value,
             buyeremail: e.target.buyeremail.value,
             agentemail: e.target.agentemail.value,
-            
+            isAccepted: 'false',
             offerPrice: e.target.price.value,
-           
+           photo:photo,
             time:e.target.offerDate.value 
           };
           console.log(OfferedProperty);
@@ -47,7 +49,7 @@ agentImg,
           console.log(propertyRes.data);
           if (propertyRes.data.insertedId) {
             Swal.fire("Offer Added Successfully!");
-            window.location.reload();
+            navigate('/dashboard/wishlist')
           }
         
     
@@ -132,7 +134,7 @@ agentImg,
             <span className="label-text">Agent Name</span>
           </label>
           <input
-            defaultValue={agentName}
+            defaultValue={agentEmail}
             name="agentemail"
             type="text"
             placeholder=""
