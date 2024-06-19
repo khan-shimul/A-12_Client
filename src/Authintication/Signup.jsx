@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../Components/useAxiosPublic';
 import { AuthContext } from '../Provider/AuthPorvider';
@@ -11,6 +11,7 @@ const Signup = () => {
   const {createUser,updateUser,googleLogin} = useContext(AuthContext);
   const axiosPublic=useAxiosPublic()
   const navigate=useNavigate()
+  const [registerError,setRegisterError]=useState('')
   
 
   const handleSignUp = (e) => {
@@ -21,7 +22,24 @@ const Signup = () => {
     const photo = e.target.photo.value;
 
     // console.log(name, email, pass, photo);
+    setRegisterError(' ')
 
+    if(pass.length<5){
+ setRegisterError('Password must be more than Five character !!')
+ return
+    }
+    else if(!/[A-Z]/.test(pass)){
+     setRegisterError('Password must have One Capital letter!!')
+     return
+    }
+ else if(!/[a-z]/.test(pass)){
+ setRegisterError('Password must have One Small letter!!')
+ return
+ }
+ else if(!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(pass)){
+ setRegisterError('Password must have One Special Character!!')
+ return
+ }
 
 
     createUser(email, pass)
@@ -47,7 +65,9 @@ const Signup = () => {
         .catch(error=>console.log(error))
         
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setRegisterError(error.message)
+      });
   };
 
   // google login
@@ -123,7 +143,9 @@ const Signup = () => {
                 required
               />
             </div>
-
+            {
+         registerError &&  <p className='text-red-600 text-lg'>{registerError}</p>
+     }
             <div className="form-control mt-6">
               <button className="btn  bg-[#D1A054]">Sign Up</button>
             </div>

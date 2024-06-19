@@ -27,6 +27,7 @@ import Update from "./Components/AgentThing/Update";
 import Details from "./Components/Details/Details";
 import MakeOffer from "./Components/MakeOffer.jsx/MakeOffer";
 import Advertise from "./Components/AdminThing/Advertise";
+import Payment from "./Components/UserThing/Payment/Payment";
 
 
  export const router = createBrowserRouter([
@@ -101,6 +102,11 @@ import Advertise from "./Components/AdminThing/Advertise";
         {
          path:'/dashboard/wishlist',
          element:<Wishlist></Wishlist>
+        },
+        {
+         path:'/dashboard/payment/:id',
+         element:<PrivateRoute><Payment></Payment></PrivateRoute>,
+         loader:({params})=>fetch(`http://localhost:5000/offerproperybyid/${params.id}`)
         },
         {
           path:'/dashboard/offer/:id',

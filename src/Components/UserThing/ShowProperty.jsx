@@ -2,6 +2,7 @@ import React from 'react';
 import { IoLocationSharp } from 'react-icons/io5';
 import { MdVerifiedUser } from 'react-icons/md';
 import { RxLapTimer } from 'react-icons/rx';
+import { Link } from 'react-router-dom';
 
 const ShowProperty = ({property}) => {
     console.log(property)
@@ -51,9 +52,10 @@ offerPrice,
 }
 </h1>
 <h1>
+<Link to={`/dashboard/payment/${_id}`}>
     {
         isAccepted==='true'&& <button className='btn btn-warning'> Pay</button>
-    }
+    }</Link>
 </h1>
 
     </div>

@@ -45,7 +45,7 @@ const Advertise = () => {
           <div className='text-center '>
 <p className='text-[#230ee2] pt-20'>---Welcome Admin---</p>
 <hr className='h-4 mt-3 w-60 mx-auto' />
-<h1 className='text-3xl font-medium'>MANAGE ALL USERS</h1>
+<h1 className='text-3xl font-medium'>ADVERTISE THE BEST PROPERTY</h1>
 <hr className='h-4 mt-3 mb-4 w-60 mx-auto' />
 </div>
 <div className='mx-7 my-7 bg-[#FFF] '>

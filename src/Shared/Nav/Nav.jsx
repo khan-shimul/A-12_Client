@@ -25,7 +25,7 @@ const Nav = () => {
 
     const navLinks = (
         <>
-          <div className=" text-white sm:flex md:gap-3 items-center mx-auto justify-center">
+          <div className=" text-green-500 sm:flex md:gap-3 items-center mx-auto justify-center">
             <li>
               <NavLink
                 to="/"

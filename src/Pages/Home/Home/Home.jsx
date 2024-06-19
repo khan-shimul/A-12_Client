@@ -5,7 +5,7 @@ import ShowAdvertise from '../../../Components/ShowAdvertise/ShowAdvertise';
 
 const Home = () => {
     return (
-        <div>
+        <div className=''>
             <Banner></Banner>
             <ShowAdvertise></ShowAdvertise>
             <LatestReview></LatestReview>

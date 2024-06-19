@@ -10,6 +10,7 @@ const MakeOffer = () => {
     const offerProperty =useLoaderData()
     const navigate=useNavigate()
     const axiosSecure=useaxiousSecure()
+    const axiosPublic=useAxiosPublic()
     console.log(offerProperty)
     const{propertyName,
         isVerified,
@@ -42,7 +43,8 @@ agentEmail,
             isAccepted: 'false',
             offerPrice: e.target.price.value,
            photo:photo,
-            time:e.target.offerDate.value 
+            time:e.target.offerDate.value,
+            propertyId:_id
           };
           console.log(OfferedProperty);
           const propertyRes = await axiosSecure.post("/offeredProperty", OfferedProperty);

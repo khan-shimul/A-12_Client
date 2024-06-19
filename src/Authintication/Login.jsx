@@ -8,6 +8,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthPorvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../Components/useAxiosPublic';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const{login,googleLogin}=useContext(AuthContext)
@@ -29,8 +31,8 @@ const Login = () => {
         Swal.fire("Login Successful!");
         navigate(location?.state ? location.state :'/')
         })
-        .catch(error=>{
-          console.log(error)
+        .catch(()=>{
+          toast.error("Wrong Email or Password !!");
         })
           }
         

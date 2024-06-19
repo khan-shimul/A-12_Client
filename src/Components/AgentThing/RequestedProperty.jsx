@@ -3,9 +3,8 @@ import { AuthContext } from "../../Provider/AuthPorvider";
 import useaxiousSecure from "../useaxiousSecure";
 import { useQuery } from "@tanstack/react-query";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { MdAddToPhotos, MdOutlineAddToPhotos, MdSupportAgent } from "react-icons/md";
-import { FaUsersBetweenLines } from "react-icons/fa6";
-import { RxLapTimer } from "react-icons/rx";
+import { MdAddToPhotos } from "react-icons/md";
+
 import Swal from "sweetalert2";
 
 const RequestedProperty = () => {
