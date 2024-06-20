@@ -1,8 +1,18 @@
-# React + Vite
+# Website Name: Property Zone
+# live link: 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+ 
+- This website is for property buy and sell.
+- This is full-stack website.
+- This website is managed by Admin and Agent.
+- An Admin can manage agent,user,property,user reviews and more...
+- This fully responsive for all device.
+- In this website we implement payment using stipe.
+- Buyer can payment using any card.
+- User can add any property to his Wishlist.
+- User can add review for any Property though modal.
+- Admin can advertise any property which will show on home page.
+- Agent can update a property which he added.
+- User can send offer to agent for user's wish Property
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
