@@ -110,7 +110,7 @@ buyername ,location,offerPrice ,agentemail }=boughtProperty
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    await axiosSecure.patch(`/bought/${boughtProperty._id}`)
+                    await axiosSecure.patch(`/offeredProperty/bought/${boughtProperty._id}`)
                     .then(()=>{
                         window.location.reload()
                         navigate('/dashboard/propertybought')

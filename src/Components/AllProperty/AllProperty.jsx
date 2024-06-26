@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useaxiousSecure from '../useaxiousSecure';
 import { useQuery } from '@tanstack/react-query';
 import ShowAllProperty from './ShowAllProperty';
+import { Typewriter } from 'react-simple-typewriter'
 
 const AllProperty = () => {
     const axiosSecure = useaxiousSecure();
@@ -50,7 +51,14 @@ const AllProperty = () => {
         <div className=''>
             <div className='text-center pt-24'>
                 <h1 className='text-3xl font-bold text-orange-400 mt-5'>
-                    Here is ALL Property Verified By Admin
+                    Here is  <Typewriter words={['ALL Property Verified By Admin !!']}
+                      loop={5}
+                      cursor
+                      cursorStyle='_'
+                      typeSpeed={90}
+                      deleteSpeed={50}
+                      delaySpeed={1300}
+                    ></Typewriter> 
                 </h1>
             </div>
             <div className="flex items-center justify-center gap-14">

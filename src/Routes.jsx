@@ -55,7 +55,7 @@ import Payment from "./Components/UserThing/Payment/Payment";
         {
             path:'/details/:id',
             element:<PrivateRoute><Details></Details></PrivateRoute>,
-            loader:({params})=>fetch(`https://y-ashy-ten.vercel.app/property/${params.id}`)
+            loader:({params})=>fetch(`http://localhost:5000/property/${params.id}`)
         },
       ]
     },
@@ -106,12 +106,12 @@ import Payment from "./Components/UserThing/Payment/Payment";
         {
          path:'/dashboard/payment/:id',
          element:<PrivateRoute><Payment></Payment></PrivateRoute>,
-         loader:({params})=>fetch(`https://y-ashy-ten.vercel.app/offerproperybyid/${params.id}`)
+         loader:({params})=>fetch(`http://localhost:5000/offerproperybyid/${params.id}`)
         },
         {
           path:'/dashboard/offer/:id',
           element:<PrivateRoute><MakeOffer></MakeOffer></PrivateRoute>,
-          loader:({params})=>fetch(`https://y-ashy-ten.vercel.app/wishlists/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/wishlists/${params.id}`)
 
         },
         
@@ -140,7 +140,7 @@ import Payment from "./Components/UserThing/Payment/Payment";
          {
           path:'/dashboard/update/:id',
           element:<PrivateRoute><Update></Update></PrivateRoute>,
-          loader:({params})=>fetch(`https://y-ashy-ten.vercel.app/property/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/property/${params.id}`)
 
         },
         

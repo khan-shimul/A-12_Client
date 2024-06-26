@@ -4,6 +4,7 @@ import LatestReview from '../Latest Review/LatestReview';
 import ShowAdvertise from '../../../Components/ShowAdvertise/ShowAdvertise';
 import Contact from '../../../Components/Contact/Contact';
 import Newsletter from '../../../Components/NewsLetter/Newsletter';
+import NewLatestReview from '../Latest Review/NewLatestReview';
 
 const Home = () => {
     return (
@@ -11,7 +12,8 @@ const Home = () => {
             <Banner></Banner>
             <ShowAdvertise></ShowAdvertise>
             <Contact></Contact>
-            <LatestReview></LatestReview>
+            {/* <LatestReview></LatestReview> */}
+            <NewLatestReview></NewLatestReview>
             <Newsletter></Newsletter>
         </div>
     );

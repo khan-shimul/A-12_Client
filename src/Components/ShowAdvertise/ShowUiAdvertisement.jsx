@@ -4,8 +4,18 @@ import { RxLapTimer } from "react-icons/rx";
 import { TbListDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
+import 'animate.css';
+import Aos from "aos";
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { useEffect } from "react";
+// ..
+
 
 const ShowUiAdvertisement = ({property}) => {
+    useEffect(()=>{
+        Aos.init({duration:2000})
+    
+    },[])
     const{propertyName,
         _id,
         isVerified,
@@ -16,8 +26,10 @@ const ShowUiAdvertisement = ({property}) => {
         maxPrice,
     agentImg}=property
     return (
-        <div>
-           <div className="rounded-md  shadow-md sm:w-96 dark:bg-gray-50 dark:text-gray-800 bg-gradient-to-bl from-lime-200 via-yellow-100 to-teal-500 backdrop-blur ">
+        <div >
+           <div data-aos="fade-down"
+        
+         className="rounded-md  shadow-md sm:w-96 dark:bg-gray-50 dark:text-gray-800 bg-gradient-to-bl from-lime-200 via-yellow-100 to-teal-500 backdrop-blur ">
 	<div className="flex items-center justify-between p-3">
 		<div className="flex items-center space-x-2">
 			<img src={ agentImg || "https://source.unsplash.com/random/100x100/?5"
