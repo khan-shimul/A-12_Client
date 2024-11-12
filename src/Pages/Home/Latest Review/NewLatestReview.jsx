@@ -36,8 +36,8 @@ const onAutoplayTimeLeft = (s, time, progress) => {
   progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
 };
     return (
-        <div className='mt-10 py-11 bg-[#ede7e7]'>
-          <h1 className='text-center mb-10 text-4xl font-bold text-orange-500 '>Users <Typewriter
+        <div className=' py-11 bg-[#ede7e7]'>
+          <h1 className='text-center  text-4xl font-bold text-orange-500 '>Users <Typewriter
            words={['Latest Reviews is here!']}
            loop={5}
            cursor

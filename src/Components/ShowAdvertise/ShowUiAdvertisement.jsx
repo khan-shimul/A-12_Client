@@ -3,7 +3,7 @@ import { MdVerifiedUser } from "react-icons/md";
 import { RxLapTimer } from "react-icons/rx";
 import { TbListDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
-
+import '../../css/All.css';
 import 'animate.css';
 import Aos from "aos";
 import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -29,7 +29,7 @@ const ShowUiAdvertisement = ({property}) => {
         <div >
            <div data-aos="fade-down"
         
-         className="rounded-md  shadow-md sm:w-96 dark:bg-gray-50 dark:text-gray-800 bg-gradient-to-bl from-lime-200 via-yellow-100 to-teal-500 backdrop-blur ">
+         className="rounded-md overflow  shadow-md sm:w-96 dark:bg-gray-50 dark:text-gray-800 bg-gradient-to-bl from-lime-200 via-yellow-100 to-teal-500 backdrop-blur ">
 	<div className="flex items-center justify-between p-3">
 		<div className="flex items-center space-x-2">
 			<img src={ agentImg || "https://source.unsplash.com/random/100x100/?5"
@@ -41,7 +41,7 @@ const ShowUiAdvertisement = ({property}) => {
 		</div>
 		
 	</div>
-	<img src={photo} alt="" className="object-cover object-center w-full h-72 dark:bg-gray-500" />
+	<img src={photo} alt="" className="property-photo object-cover object-center w-full h-72 dark:bg-gray-500" />
 	<div className='flex justify-between lg:px-9 mt-4 '>
         <h1 className='text-xl  font-semibold'> <span className='text-violet-800 text-base mr-1'>Title:</span>  {propertyName}</h1>
         <h1 className='flex items-center justify-center gap-1 text-xl font-semibold' ><IoLocationSharp />{location}</h1>

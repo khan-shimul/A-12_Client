@@ -3,7 +3,7 @@ import logo from '../../assets/download-C1bLvnDk.jpg'
 const Footer = () => {
     return (
         <div className='w-full border '>
-          <footer className="footer w-full footer-center p-10 bg-base-300 text-primary-content mt-10 h-96">
+          <footer className="footer w-full footer-center p-10 bg-base-300 text-primary-content  h-96">
   <aside className='text-sky-950  text-xl'>
    <img className='h-10' src={logo} alt="" />
    <p className="font-bold ">
