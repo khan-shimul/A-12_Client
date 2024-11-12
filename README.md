@@ -1,5 +1,5 @@
 # Website Name: Property Zone
-# live link: https://b9-assignment-12-real-estate.web.app/
+# live link: https://property-zone.netlify.app/
 
 
  
