@@ -1,8 +1,6 @@
-# Website Name: Property Zone
-# live link: https://property-zone.netlify.app/
+# Property Zone: https://property-zone.netlify.app
 
 
- 
 - This website is for property buy and sell.
 - This is full-stack website.
 - This website is managed by Admin and Agent.
